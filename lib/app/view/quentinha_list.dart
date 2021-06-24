@@ -7,9 +7,9 @@ import '../my_app.dart';
 
 class QuentinhaList  extends StatelessWidget {
 
-  Future<List<Map<String,dynamic>>> _buscar() async{
-    Database db = await Connection.get();
-    return db.query('quentinha');
+  Future<List<Quentinha>> _buscar() async{
+      return QuentinhaDAOImpl().find();
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class QuentinhaList  extends StatelessWidget {
       future: _buscar(),
       builder: (context, futuro){
         if(futuro.hasData){
-          var lista = futuro.data;
+          List<Quentinha> lista = futuro.data;
           return Scaffold(
       appBar: AppBar(
         title: Text('Lista de Quentinhas'),
