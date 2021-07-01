@@ -1,5 +1,5 @@
-import 'package:agenda_crud/app/domain/entities/quentinha.dart';
-import 'package:agenda_crud/app/domain/interfaces/quentinha_dao.dart';
+import 'package:quentinha_crud/app/domain/entities/quentinha.dart';
+import 'package:quentinha_crud/app/domain/interfaces/quentinha_dao.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../connection.dart';

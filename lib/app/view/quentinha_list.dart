@@ -1,5 +1,5 @@
-import 'package:agenda_crud/app/database/script.dart';
-import 'package:agenda_crud/app/database/sqlite/connection.dart';
+import 'package:quentinha_crud/app/database/script.dart';
+import 'package:quentinha_crud/app/database/sqlite/connection.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 

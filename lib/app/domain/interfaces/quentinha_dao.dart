@@ -1,4 +1,4 @@
-import 'package:agenda_crud/app/domain/entities/quentinha.dart';
+import 'package:quentinha_crud/app/domain/entities/quentinha.dart';
 
 abstract class QuentinhaDAO{
 
