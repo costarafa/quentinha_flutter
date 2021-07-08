@@ -1,7 +1,7 @@
-import 'package:quentinha_crud/app/database/script.dart';
-import 'package:quentinha_crud/app/database/sqlite/connection.dart';
+
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
+import 'package:quentinha_crud/app/database/sqlite/dao/quentinha_dao_impl.dart';
+import 'package:quentinha_crud/app/domain/entities/quentinha.dart';
 
 import '../my_app.dart';
 
@@ -34,11 +34,11 @@ class QuentinhaList  extends StatelessWidget {
         itemCount: lista.length,
         itemBuilder: (context, i){
           var quentinha = lista[i];
-          var img_quentinha = CircleAvatar( backgroundImage: NetworkImage(quentinha['url_quentinha']),);
+          var imgQuentinha = CircleAvatar( backgroundImage: NetworkImage(quentinha.imgQuentinha),);
           return ListTile(
-            leading: img_quentinha,
-            title: Text(quentinha['sabor']),
-            subtitle:  Text(quentinha['preco']),
+            leading: imgQuentinha,
+            title: Text(quentinha.sabor),
+            subtitle:  Text(quentinha.preco.toString()),
             trailing: Container(
               width: 100,
               child: Row(

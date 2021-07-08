@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.agenda_crud">
+    package="com.example.quentinha_crud">
    <application
-        android:label="agenda_crud"
+        android:label="quentinha_crud"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

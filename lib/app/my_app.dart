@@ -25,13 +25,13 @@
 // }
 
 
-import 'package:agenda_crud/app/view/quentinha_form.dart';
-import 'package:agenda_crud/app/view/quentinha_list.dart';
+import 'package:quentinha_crud/app/view/quentinha_form.dart';
+import 'package:quentinha_crud/app/view/quentinha_list.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
   static const HOME = '/';
-  static const CONTACT_FORM =  'contact-form';
+  static const QUENTINHA_FORM =  'quentinha-form';
   
   @override
   Widget build(BuildContext context) {
@@ -41,8 +41,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-      HOME : (context) => ContactList(),
-      CONTACT_FORM : (context) => ContactForm()
+      HOME : (context) => QuentinhaList(),
+      QUENTINHA_FORM : (context) => QuentinhaForm()
       },
     );
   }

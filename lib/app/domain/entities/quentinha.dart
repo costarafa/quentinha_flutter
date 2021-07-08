@@ -5,7 +5,7 @@ class Quentinha{
   String sabor;
   Float preco; 
   String tamanho; 
-  String urlQuentinha;
+  String imgQuentinha;
 
-  Quentinha({this.id,this.sabor,this.preco,this.tamanho,this.urlQuentinha});
+  Quentinha({this.id,this.sabor,this.preco,this.tamanho,this.imgQuentinha});
   }

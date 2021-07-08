@@ -1,4 +1,4 @@
-package com.example.agenda_crud
+package com.example.quentinha_crud
 
 import io.flutter.embedding.android.FlutterActivity
 
