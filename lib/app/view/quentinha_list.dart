@@ -1,24 +1,55 @@
 
 import 'package:flutter/material.dart';
-import 'package:quentinha_crud/app/database/sqlite/dao/quentinha_dao_impl.dart';
 import 'package:quentinha_crud/app/domain/entities/quentinha.dart';
+import 'package:quentinha_crud/app/view/quentinha_list_back.dart';
 
 import '../my_app.dart';
 
 class QuentinhaList  extends StatelessWidget {
+  final _back = QuentinhaListBack();
 
-  Future<List<Quentinha>> _buscar() async{
-      return QuentinhaDAOImpl().find();
+  CircleAvatar circleAvatar(String imgQuentinha){
+    try{
+      return CircleAvatar(backgroundImage: NetworkImage(imgQuentinha));
+    }catch(e){
+      return CircleAvatar(child: Icon(Icons.person));
     }
+  }
+
+  Widget iconEditButton(Function onPressed){
+    return IconButton(icon: Icon(Icons.edit), color: Colors.orange), onPressed: onPressed);
+  }
+  Widget iconRemoveButton(BuildContext context, Function remove){
+    return IconButton(
+      icon: Icon(Icons.delete),
+      color: Colors.red,
+      onPressed: (){
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Excluir'),
+            content: Text('Confirma a exclusão?'),
+            actions: [
+              FlatButton(
+                child: Text('Não'),
+                onPressed:(){
+                  Navigator.of(context).pop();
+                },
+              ),
+              FlatButton(
+                child: Text('Sim'),
+                onPressed: remove,
+              ),
+            ], 
+          )
+        );
+      }
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _buscar(),
-      builder: (context, futuro){
-        if(futuro.hasData){
-          List<Quentinha> lista = futuro.data;
-          return Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text('Lista de Quentinhas'),
         actions: [
@@ -30,34 +61,41 @@ class QuentinhaList  extends StatelessWidget {
              )
         ],
       ),
-      body: ListView.builder(
+      body: FutureBuilder(
+      future: _back.list,
+      builder: (context, futuro){
+        if(!futuro.hasData){
+          return CircularProgressIndicator();
+        } else{
+
+          List<Quentinha> lista = futuro.data;
+          return ListView.builder(
         itemCount: lista.length,
         itemBuilder: (context, i){
           var quentinha = lista[i];
-          var imgQuentinha = CircleAvatar( backgroundImage: NetworkImage(quentinha.imgQuentinha),);
           return ListTile(
-            leading: imgQuentinha,
+            leading: circleAvatar(quentinha.imgQuentinha),
             title: Text(quentinha.sabor),
             subtitle:  Text(quentinha.preco.toString()),
             trailing: Container(
               width: 100,
               child: Row(
                 children: [
-                  IconButton(icon: Icon(Icons.edit), onPressed: null),
-                  IconButton(icon: Icon(Icons.delete), onPressed: null),
+                  iconEditButton((){
+                    _back.goToForm(context, quentinha);
+                  }),
+                  iconRemoveButton(context, (){
+                    _back.remove(quentinha.id);
+                    Navigator.of(context).pop();
+                  })
                 ],
                 ),
               ) ,
           );
         },
-      )
       );
-
-        }else{
-          return Scaffold();
-        }
-      }
-      );
+    }
+   }));
     
   }
 }

@@ -1,6 +1,6 @@
 final createTable = '''
   CREATE TABLE quentinha(
-    id INT PRIMARY KEY
+    id INTEGER NOT NULL PRIMARY KEY
     ,sabor VARCHAR(200) NOT NULL
     ,preco FLOAT(16) NOT NULL
     ,tamanho CHAR(1) NOT NULL
