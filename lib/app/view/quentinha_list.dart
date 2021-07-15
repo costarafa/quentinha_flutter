@@ -9,11 +9,9 @@ class QuentinhaList  extends StatelessWidget {
   final _back = QuentinhaListBack();
 
   CircleAvatar circleAvatar(String imgQuentinha){
-    try{
-      return CircleAvatar(backgroundImage: NetworkImage(imgQuentinha));
-    }catch(e){
-      return CircleAvatar(child: Icon(Icons.person));
-    }
+    return (Uri.tryParse("").isAbsolute) ?
+      CircleAvatar(backgroundImage: NetworkImage(imgQuentinha))
+      : CircleAvatar(child: Icon(Icons.person));
   }
 
   Widget iconEditButton(Function onPressed){
