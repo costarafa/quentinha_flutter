@@ -31,12 +31,14 @@ goToForm(BuildContext context, [Quentinha quentinha]){
   Navigator.of(context).pushNamed(MyApp.QUENTINHA_FORM, arguments: quentinha).then(refreshList);
 } 
 
+goToDetails(BuildContext context, Quentinha quentinha){
+  Navigator.of(context).pushNamed(MyApp.QUENTINHA_DETAILS, arguments: quentinha);
+
+}
 //excluir
 remove(int id){
   _service.remove(id);
   refreshList();
 }
-
-
 
 }

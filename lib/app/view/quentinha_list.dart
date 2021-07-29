@@ -5,6 +5,7 @@ import 'package:quentinha_crud/app/view/quentinha_list_back.dart';
 
 import '../my_app.dart';
 
+
 class QuentinhaList  extends StatelessWidget {
   final _back = QuentinhaListBack();
 
@@ -54,7 +55,7 @@ class QuentinhaList  extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.add),
              onPressed: (){
-               Navigator.of(context).pushNamed(MyApp.QUENTINHA_FORM);
+               _back.goToForm(context);
              }
              )
         ],
@@ -65,15 +66,18 @@ class QuentinhaList  extends StatelessWidget {
         if(!futuro.hasData){
           return CircularProgressIndicator();
         } else{
-
           List<Quentinha> lista = futuro.data;
           return ListView.builder(
-        itemCount: lista.length,
-        itemBuilder: (context, i){
-          var quentinha = lista[i];
-          return ListTile(
-            leading: circleAvatar(quentinha.imgQuentinha),
-            title: Text(quentinha.sabor),
+            itemCount: lista.length,
+            itemBuilder: (context, i){
+             var quentinha = lista[i];
+             return ListTile(
+              leading: circleAvatar(quentinha.imgQuentinha),
+              title: Text(quentinha.sabor),
+              onTap: (){
+                _back.goToDetails(context,contato);
+
+            },
             subtitle:  Text(quentinha.preco.toString()),
             trailing: Container(
               width: 100,

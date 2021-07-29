@@ -25,6 +25,7 @@
 // }
 
 
+import 'package:quentinha_crud/app/view/quentinha_details.dart';
 import 'package:quentinha_crud/app/view/quentinha_form.dart';
 import 'package:quentinha_crud/app/view/quentinha_list.dart';
 import 'package:flutter/material.dart';
@@ -32,17 +33,20 @@ import 'package:flutter/material.dart';
 class MyApp extends StatelessWidget {
   static const HOME = '/';
   static const QUENTINHA_FORM =  'quentinha-form';
-  
+  static const QUENTINHA_DETAILS = 'quentinha-details';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       routes: {
       HOME : (context) => QuentinhaList(),
-      QUENTINHA_FORM : (context) => QuentinhaForm()
+      QUENTINHA_FORM : (context) => QuentinhaForm(),
+      QUENTINHA_DETAILS : (context) => QuentinhaDetails()
       },
     );
   }
