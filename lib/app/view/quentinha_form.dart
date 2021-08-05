@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:quentinha_crud/app/view/quentinha_form_back.dart';
 
 class QuentinhaForm extends StatelessWidget {
@@ -17,19 +18,19 @@ final _form = GlobalKey<FormState>();
   }
 
   Widget fieldPreco(QuentinhaFormBack back){
-    var  mask = MaskTextInputFormatter(mask: '##,##');
-      return TextFormField(
-        validator: back.validatePreco,
-        onSaved:(newValue) => back.quentinha.preco = newValue,
-        initialValue: back.quentinha.preco,
-        inputFormatters: [mask],
-        keyboardType: TextInputType.number,
-        decoration: InputDecoration(
-          labelText: 'Preço',
-          hintText: '99,99'
-        )
-      );
-    }
+    var mask = MaskTextInputFormatter(mask: '##,##');
+    return TextFormField(
+      validator: back.validatePreco,
+      onSaved: (newValue) => back.quentinha.preco = newValue,
+      initialValue: back.quentinha.preco.toString(),
+      inputFormatters: [mask],
+      keyboardType: TextInputType.number,
+      decoration: InputDecoration(
+        labelText: 'Preço',
+        hintText: '99,99'
+      )
+    );
+  }
 
     Widget fieldTamanho(QuentinhaFormBack back){
       return TextFormField(
@@ -54,6 +55,7 @@ final _form = GlobalKey<FormState>();
     }
   @override
   Widget build(BuildContext context) {
+    var _back = QuentinhaFormBack(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Cadastro de Quentinha'),

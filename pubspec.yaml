@@ -28,9 +28,9 @@ dependencies:
   path:
   mobx: 1.2.1+4
   flutter_mobx: 1.1.0+2
-  mask_text_inout_formattter:
-
-
+  mask_text_input_formatter: ^1.2.1
+  url_launcher: 5.7.10
+  
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

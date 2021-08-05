@@ -16,7 +16,7 @@ class QuentinhaList  extends StatelessWidget {
   }
 
   Widget iconEditButton(Function onPressed){
-    return IconButton(icon: Icon(Icons.edit), color: Colors.orange), onPressed: onPressed);
+    return IconButton(icon: Icon(Icons.edit), color: Colors.orange, onPressed: onPressed);
   }
   Widget iconRemoveButton(BuildContext context, Function remove){
     return IconButton(
@@ -75,7 +75,7 @@ class QuentinhaList  extends StatelessWidget {
               leading: circleAvatar(quentinha.imgQuentinha),
               title: Text(quentinha.sabor),
               onTap: (){
-                _back.goToDetails(context,contato);
+                _back.goToDetails(context,quentinha);
 
             },
             subtitle:  Text(quentinha.preco.toString()),
