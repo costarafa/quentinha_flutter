@@ -21,7 +21,7 @@ final _form = GlobalKey<FormState>();
     var mask = MaskTextInputFormatter(mask: '##,##');
     return TextFormField(
       validator: back.validatePreco,
-      onSaved: (newValue) => back.quentinha.preco = newValue,
+      onSaved: (newValue) => back.quentinha.preco = double.parse(newValue),
       initialValue: back.quentinha.preco.toString(),
       inputFormatters: [mask],
       keyboardType: TextInputType.number,

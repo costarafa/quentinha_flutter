@@ -1,9 +1,7 @@
-import 'dart:ffi';
-
 class Quentinha{
   int id;
   String sabor;
-  Float preco; 
+  double preco; 
   String tamanho; 
   String imgQuentinha;
 

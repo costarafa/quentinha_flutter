@@ -39,7 +39,7 @@ class QuentinhaDetails extends StatelessWidget {
                 ) :
                 CircleAvatar(
                   child: Icon(
-                    Icons.person,
+                    Icons.local_dining,
                     size: width/2,
                   ),
                   radius: radius,

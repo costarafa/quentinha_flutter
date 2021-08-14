@@ -1,10 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:quentinha_crud/app/domain/entities/quentinha.dart';
 import 'package:quentinha_crud/app/view/quentinha_list_back.dart';
-
-import '../my_app.dart';
-
 
 class QuentinhaList  extends StatelessWidget {
   final _back = QuentinhaListBack();
@@ -12,16 +8,20 @@ class QuentinhaList  extends StatelessWidget {
   CircleAvatar circleAvatar(String imgQuentinha){
     return (Uri.tryParse("").isAbsolute) ?
       CircleAvatar(backgroundImage: NetworkImage(imgQuentinha))
-      : CircleAvatar(child: Icon(Icons.person));
+      : CircleAvatar(child: Icon(Icons.local_dining));
   }
 
   Widget iconEditButton(Function onPressed){
-    return IconButton(icon: Icon(Icons.edit), color: Colors.orange, onPressed: onPressed);
+    return IconButton(
+      icon: Icon(Icons.edit),
+      color: Colors.black,
+      onPressed: onPressed
+    );
   }
   Widget iconRemoveButton(BuildContext context, Function remove){
     return IconButton(
       icon: Icon(Icons.delete),
-      color: Colors.red,
+      color: Colors.blue,
       onPressed: (){
         showDialog(
           context: context,
